@@ -50,47 +50,85 @@
 
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-black">Problem & Context</h3>
+            <h3 class="w3-large w3-text-blue">Problem & Context</h3>
             <p>An information retrieval (IR) system is software which facilitates the organization, retrieval, and ranking or evaluation of relevant documents from a digital repository based on input from a user. People interact with IR systems constantly--to search for a song from a streaming service, find a restaurant in a new city, or find the receipt for an order in their email inbox. In a <a href = "https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval/">blog post</a> about neural information retrieval, Meta AI Research said IR is "arguably among the most defining challenges of the information age".</p>
             <p>In recent years, there has been an explosion of development in using deep neural networks and deep learning methods for IR tasks. Instead of relying on heavily pre-defined, handcrafted features for query-document matching and ranking, neural network models can learn relationships between words and phrases, patterns, and hierarchical structure. However, using deep learning comes with a high computational cost, and require large amounts of training data before they can be deployed.  </p>
 
-            <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to find a method which produces high-quality ranking results without high latency. </p>
+            <h3 class="w3-large w3-text-blue">Goal</h3>
+            <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>
+            <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>
         </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
             <img src="intro_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
         </div>
     </div>
 
-    <div class="w3-row-padding">
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:99%">
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:99%">
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:99%">
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:99%">
-            </div>
-        </div>
-    </div>
-
     <!-- Data Section -->
     <div class="w3-container w3-padding-32" id="data">
         <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 w3-text-dark-grey">Data: MS MARCO</h2>
+
+        <div class="w3-row">
+            <div class="w3-half w3-container w3-margin-bottom">
+                <h3 class="w3-large w3-text-blue">About the Data</h3>
+                <p>We used data from the <a href = "https://microsoft.github.io/msmarco/">MS MARCO collection of datasets</a> provided by Microsoft for our project.</p>
+                <p>We use this dataset for several reasons...</p>
+                <ul>
+                    <li>The dataset contains 1,010,916 million anonymous queries/questions from Bing search engine, and 8,841,823 million passages from web documents retrieved by Bing. The collection of dataset includes pro-processed datasets for training and testing, as well as "triples" (query, positive passage, negative passage).</li>
+                    <li>Using this dataset allows us to immediately start working on model development, and not worry about collecting, labeling and indexing data ourselves.</li>
+                    <li>Almost all of the recent research on neural information retrieval utilizes MS MARCO and/or contains benchmarking results using MS MARCO. This enables us to more easily evaluate and compare our work with other research.</li>
+                </ul>
+            </div>
+            <div class="w3-half w3-container w3-margin-top w3-padding-top-48">
+                <img src="ms_marco_info.png" alt="Information about the MS MARCO data" style="width:99%">
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <h3 class="w3-large w3-text-blue">Example Queries & Passages</h3>
+                <p>Query: how many kiloliters are in a liter</p>
+            </div>
+            <div class="w3-half w3-container">
+                <h3 class="w3-large w3-text-white">placeholder</h3>
+                <p>Passage: How many kilojoules should an 18 year old girl have each day? You should be safe with around 8000-9000 kilojoules per day but it is highly relative to you personally and factors such as height, activity, age, gender and weight are inclus … ive in calculating how many kilojoules you should have.</p>
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p>Query: who were the maccabees</p>
+            </div>
+            <div class="w3-half w3-container w3-margin-bottom">
+                <p>Passage 1: For other uses, see Maccabees (disambiguation). The Maccabees, also spelled Machabees (Hebrew: מכבים or מקבים‎‎, Maqabim; Latin: Machabaei or Maccabaei; Greek: μακκαβαῖοι, Makkabaioi), were the leaders of a Jewish rebel army that took control of Judea, which at the time had been a province of the Seleucid Empire.</p>
+                <p>Passage 2: The descendants of Mattathias. The Maccabees, also spelled Machabees (Hebrew: מכבים or מקבים‎‎, Maqabim; Latin: Machabaei or Maccabaei; Greek: μακκαβαῖοι, Makkabaioi), were the leaders of a Jewish rebel army that took control of Judea, which at the time had been a province of the Seleucid Empire.</p>
+            </div>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-content">
+                    <img src="words_per_passage.png" alt="House" style="width:90%">
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-content">
+                    <img src="unique_words_per_passage.png" alt="House" style="width:100%">
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-content">
+                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>
+                    <img src="query_top_words.png" alt="House" style="width:95%">
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-content">
+                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>
+                    <img src="query_top_ngrams.png" alt="House" style="width:100%">
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!--Techincal Approach Section -->
