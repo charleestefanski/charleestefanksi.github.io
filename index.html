@@ -136,33 +136,41 @@
         <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 w3-text-dark-grey">Technical Approach</h2>
     </div>
 
-    <div class="w3-row-padding">
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:100%">
-            </div>
+    <div class="w3-row">
+        <div class="w3-twothird w3-container w3-margin-bottom">
+            <h3 class="w3-large w3-text-blue">ColBERT Overview</h3>
+            <p><a href = "https://arxiv.org/pdf/2004.12832.pdf">ColBERT</a> is a ranking model which uses "contextualized late interation" with BERT. This method that leverages the effectiveness of deep learning models (specifically BERT) but is more efficient because it decreases the computational demand at the time of query processing using an architecture they call late interaction architecture.</p>
+            <p>BERT, which was at one point the state-of-the-art neural information retrieval method as it offered more effective results than existing methods, uses "all-to-all interaction", where a neural network is fed inputs that reflect the similarity between each word and/or phrase in the query and documents. In order to speed up query processing, ColBERT encodes the query and document using BERT and then performs an interaction step where the similarity is computed. By delaying the interaction between queries and documents, document representation can be pre-computed offline. This makes the system much more efficient, but still offers the effectiveness of contextualized term embedding.</p>
         </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:100%">
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:100%">
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Fill</div>
-                <img src="white_placeholder.png" alt="House" style="width:100%">
-            </div>
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
+            <img src="colbert_architecture.png" alt="House" style="width:100%">
+
         </div>
     </div>
 
+    <div class="w3-row">
+        <div class="w3-third w3-container w3-margin-bottom">
+            <h3 class="w3-large w3-text-blue">ColBERT with Pruning</h3>
+            <p>We attempted to improve upon ColBERT by creating pruning methods against ColBERT model layers.</p>
+        </div>
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
+            <img src="pruning_mrr10.png" alt="House" style="width:100%">
+        </div>
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
+            <img src="pruning_recall50.png" alt="House" style="width:100%">
+        </div>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-twothird w3-container w3-margin-bottom">
+            <h3 class="w3-large w3-text-blue">SPLADE</h3>
+            <p>An information retrieval (IR) system is software which facilitates the organization, retrieval, and ranking or evaluation of relevant documents from a digital repository based on input from a user. People interact with IR systems constantly--to search for a song from a streaming service, find a restaurant in a new city, or find the receipt for an order in their email inbox. In a <a href = "https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval/">blog post</a> about neural information retrieval, Meta AI Research said IR is "arguably among the most defining challenges of the information age".</p>
+            <p>In recent years, there has been an explosion of development in using deep neural networks and deep learning methods for IR tasks. Instead of relying on heavily pre-defined, handcrafted features for query-document matching and ranking, neural network models can learn relationships between words and phrases, patterns, and hierarchical structure. However, using deep learning comes with a high computational cost, and require large amounts of training data before they can be deployed.  </p>
+        </div>
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
+
+        </div>
+    </div>
     <div class="w3-row-padding">
         <div class="w3-col l3 m6 w3-margin-bottom">
             <div class="w3-display-container">
