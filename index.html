@@ -54,12 +54,30 @@
             <p>An information retrieval (IR) system is software which facilitates the organization, retrieval, and ranking or evaluation of relevant documents from a digital repository based on input from a user. People interact with IR systems constantly--to search for a song from a streaming service, find a restaurant in a new city, or find the receipt for an order in their email inbox. In a <a href = "https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval/">blog post</a> about neural information retrieval, Meta AI Research said IR is "arguably among the most defining challenges of the information age".</p>
             <p>In recent years, there has been an explosion of development in using deep neural networks and deep learning methods for IR tasks. Instead of relying on heavily pre-defined, handcrafted features for query-document matching and ranking, neural network models can learn relationships between words and phrases, patterns, and hierarchical structure. However, using deep learning comes with a high computational cost, and require large amounts of training data before they can be deployed.  </p>
 
+        </div>
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
+            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
+        </div>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-half w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">Goal</h3>
             <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>
             <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>
         </div>
-        <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
-            <img src="intro_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
+        <div class="w3-half w3-container w3-margin-top w3-sand">
+            <h3 class="w3-large">How do we measure efficiency and effectiveness?</h3>
+            <p>Efficiency:</p>
+            <ul>
+                <li>FLOPS (floating-point operations per second): Measure average FLOPS needed to compute document query score. Provides a metric of the computational and resource/energy demand of the model.</li>
+                <li>Query Latency (in milliseconds): Time to return ranked documents for query.</li>
+            </ul>
+            <p>Effectiveness:</p>
+            <ul>
+                <li>Recall@K: Fraction of relevant docs of (K) items retrieved (order unaware).</li>
+                <li>Mean Reciprocal Rank (MRR@K): Measure of ranking the first relevant document (order aware).</li>
+            </ul>
         </div>
     </div>
 
@@ -166,6 +184,7 @@
             <h3 class="w3-large w3-text-blue">Our Approach: ColBERT with Quantization</h3>
 
             <p>One of the challenges of using neural networks for information retrieval is the high computational demand of training neural networks. We used a quantization technique to reduce the model size and therefore reduce the hardware demands of the model. </p>
+            <p>Quantization of a model is the application of techniques for performing computations and storing tensors at lower bit-widths than floating point precision (i.e. using integers or smaller floating point values). This dramatically reduces both the memory requirement and computational cost of using neural networks. We applied dynamic quantization was post training and indexing.</p>
         </div>
         <div class="w3-twothird w3-container w3-margin-top w3-padding-top-24">
             <img src="quantization_example.png" alt="Quantization Code" style="width:100%">
@@ -177,7 +196,7 @@
             <h3 class="w3-large w3-text-blue">SPLADE Overview</h3>
             </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
-
+            <img src="splade_arch.png" alt="House" style="width:80%">
         </div>
     </div>
 
@@ -197,17 +216,18 @@
 
     </div>
 
-    <div class="w3-container">
+    <div class="w3-container w3-margin-bottom">
         <h3 class="w3-large">ColBERT with Quantization</h3>
 
-        <table class="w3-table">
-            <tr>
+        <table class="w3-table w3-border w3-centered">
+            <tr class="w3-blue-grey">
                 <th>Dataset Size</th>
                 <th>Model</th>
                 <th>MRR@10</th>
                 <th>Recall@50</th>
                 <th>Recall@200</th>
                 <th>Recall@1000</th>
+                <th>Avg Encoding Time per Query (in ms)</th>
             </tr>
             <tr>
                 <td>Toy dataset</td>
@@ -216,6 +236,7 @@
                 <td>0.866917</td>
                 <td>0.945977</td>
                 <td>0.976862</td>
+                <td>6.59 ms</td>
             </tr>
             <tr>
                 <td>Toy dataset</td>
@@ -224,6 +245,16 @@
                 <td>0.860005</td>
                 <td>0.942574</td>
                 <td>0.974558</td>
+                <td>5.17 ms</td>
+            </tr>
+            <tr class="w3-khaki">
+                <td></td>
+                <td></td>
+                <td>-0.01905</td>
+                <td>-0.00797</td>
+                <td>-0.0036</td>
+                <td>-0.00236</td>
+                <td>1.27x faster</td>
             </tr>
             <tr>
                 <td>Full dataset</td>
@@ -232,6 +263,7 @@
                 <td>0.865142</td>
                 <td>0.945777</td>
                 <td>0.976369</td>
+                <td>6.56 ms</td>
             </tr>
             <tr>
                 <td>Full dataset</td>
@@ -240,6 +272,51 @@
                 <td>0.858006</td>
                 <td>0.941289</td>
                 <td>0.97341</td>
+                <td>3.91 ms</td>
+            </tr>
+            <tr class="w3-khaki">
+                <td></td>
+                <td></td>
+                <td>-0.02259</td>
+                <td>-0.00825</td>
+                <td>-0.00475</td>
+                <td>-0.00303</td>
+                <td>~1.7x faster</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="w3-container w3-margin-bottom">
+        <h3 class="w3-large">SPLADE with SBERT</h3>
+
+        <table class="w3-table w3-border w3-centered">
+            <tr class="w3-blue-grey">
+                <th>Model</th>
+                <th>MRR@10</th>
+                <th>FLOPS (Toy Dataset</th>
+                <th>FLOPS (MS TREC 2019)</th>
+                <th>Model Size (MB)</th>
+            </tr>
+            <tr>
+                <td>SPLADE with Sentence Transformer</td>
+                <td>0.33</td>
+                <td>25,627</td>
+                <td>27,688</td>
+                <td>940</td>
+            </tr>
+            <tr>
+                <td>SPLADE with Token-Level Transformer</td>
+                <td>0.33</td>
+                <td>6,458</td>
+                <td>1,070</td>
+                <td>767</td>
+            </tr>
+            <tr class="w3-khaki">
+                <td>Percent Change</td>
+                <td>0%</td>
+                <td>-74%</td>
+                <td>-96%</td>
+                <td>-18%</td>
             </tr>
         </table>
     </div>
