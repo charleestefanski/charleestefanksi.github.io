@@ -5,6 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #7aa8b7;
+            border-radius: 6px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #c2c7c7;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,6 +47,7 @@
     </div>
     <div class="w3-margin w3-display-left" style="top:200px;left:50px">
         <h1 class="w3-xxxlarge w3-text-white w3-wide"><span class="w3-text-dark-grey">Neural Information Retrieval</span></h1>
+        <a class="button w3-xlarge" href="https://github.com/FirmwareDS/Capstone-Information-Retrieval-2.0"><i class="fa fa-github"></i> Project GitHub</a>
     </div>
 
     <div class="w3-margin w3-display-left" style="top:600px;left:50px">
@@ -49,24 +67,28 @@
     </div>
 
     <div class="w3-row">
-        <div class="w3-twothird w3-container w3-margin-bottom">
+        <div class="w3-half w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">Problem & Context</h3>
             <p>An information retrieval (IR) system is software which facilitates the organization, retrieval, and ranking or evaluation of relevant documents from a digital repository based on input from a user. People interact with IR systems constantly--to search for a song from a streaming service, find a restaurant in a new city, or find the receipt for an order in their email inbox. In a <a href = "https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval/">blog post</a> about neural information retrieval, Meta AI Research said IR is "arguably among the most defining challenges of the information age".</p>
             <p>In recent years, there has been an explosion of development in using deep neural networks and deep learning methods for IR tasks. Instead of relying on heavily pre-defined, handcrafted features for query-document matching and ranking, neural network models can learn relationships between words and phrases, patterns, and hierarchical structure. However, using deep learning comes with a high computational cost, and require large amounts of training data before they can be deployed.  </p>
 
         </div>
-        <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
-            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
+        <div class="w3-half w3-container w3-margin-bottom w3-padding-top-48">
+            <img src="timeline.png" alt="Nueral IR Methods Timeline" style="width:99%">
+            <figcaption>Figure from <a href = "https://europe.naverlabs.com/blog/splade-a-sparse-bi-encoder-bert-based-model-achieves-effective-and-efficient-first-stage-ranking/">Naver Labs Europe.</a></figcaption>
         </div>
     </div>
 
     <div class="w3-row">
-        <div class="w3-half w3-container w3-margin-bottom">
+        <div class="w3-third w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">Goal</h3>
             <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>
             <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>
         </div>
-        <div class="w3-half w3-container w3-margin-top w3-sand">
+        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
+            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
+        </div>
+        <div class="w3-third w3-container w3-margin-top w3-sand">
             <h3 class="w3-large">How do we measure efficiency and effectiveness?</h3>
             <p>Efficiency:</p>
             <ul>
@@ -196,7 +218,7 @@
             <h3 class="w3-large w3-text-blue">SPLADE Overview</h3>
             </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
-            <img src="splade_arch.png" alt="House" style="width:80%">
+            <img src="splade_arch.png" alt="House" style="width:70%">
         </div>
     </div>
 
