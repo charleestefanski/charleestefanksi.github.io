@@ -97,12 +97,6 @@
     </div>
 
     <div class="w3-row">
-<!--        <div class="w3-twothird w3-container w3-margin-bottom">-->
-<!--            <h3 class="w3-large w3-text-blue">Goal</h3>-->
-<!--            <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>-->
-<!--            <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>-->
-<!--            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:59%">-->
-<!--        </div>-->
         <div class="w3-half w3-container">
             <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:89%">
         </div>
@@ -177,14 +171,14 @@
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
-                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>
+<!--                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>-->
                     <img src="query_top_words.png" alt="House" style="width:95%">
                     <figcaption>The most common non-stopwords in a query.</figcaption>
                 </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
-                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>
+<!--                    <div class="w3-display-topleft w3-black w3-padding">Fill</div>-->
                     <img src="query_top_ngrams.png" alt="House" style="width:100%">
                     <figcaption>The most common "tri-grams" of non-stopwords in a query.</figcaption>
                 </div>
@@ -238,7 +232,21 @@
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">SPLADE Overview</h3>
-            </div>
+            <p><a href = "https://arxiv.org/pdf/2107.05720.pdf">SPLADE</a> is a neural IR method which uses sparse representations of queries and documents. Utilizing sparse vectors means SPLADE still has the desirable properties of Bag-of-Words based methods (traditional methods), like interpretability, exact term matching, and efficient use of inverted indexes. Below is an example of the SPLADE representation of a document.</p>
+            <table class="w3-table w3-border">
+                <tr class="w3-blue">
+                    <th>Query</th>
+                    <th>Document</th>
+                    <th>SPLADE BoW Representation</th>
+                </tr>
+                <tr>
+                    <td>What is a corporation?</td>
+                    <td>A corporation is a company or group of people authorized to act as a single entity and recognized as such in law.</td>
+                    <td>[('corporation', 1.91), ('company', 1.29), ('single', 1.28), ('authorized', 1.21), ('entity', 1.01), ('group', 0.89), ('law', 0.82), ('recognized', 0.82), ('act', 0.8), ('a', 0.68), ('people', 0.44), ('as', 0.22)]</td>
+                </tr>
+            </table>
+            <p>The architecture of SPLADE is illustrated in the figure on the right. A document/query is tokenized and then input to BERT. The output embeddings are then projected back to the full vocabulary. Then the signals are summed and a log-saturation effect is applied to term weights. This process results in a single representation is that is used to compute the document-query score. SPLADE is able to perform information retrieval more efficiently than many neural IR methods while maintaining similar effectiveness (MRR and recall).</p>
+        </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
             <img src="splade_arch.png" alt="House" style="width:70%">
             <figcaption>Figure from <a href = "https://europe.naverlabs.com/blog/splade-a-sparse-bi-encoder-bert-based-model-achieves-effective-and-efficient-first-stage-ranking/">Naver Labs Europe.</a></figcaption>
@@ -248,6 +256,8 @@
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">Our Approach: SPLADE with SBERT</h3>
+
+            <p>Our approach was to token-level transformer (BERT) with a sentence transformer (SBERT). This approach had a couple effects on the SPLADE model approach. First of all, the interpretability advantage of SPLADE was diminished because after using a sentence-level transformer we are no longer able to generate a token-level probability distribution to interpret why a document was included in the sparse index. Secondly, we hoped that the steps after the PLM would be more efficient since the model would not need to generate the probability distribution for each token (go through the hierarchical softmax and Concatenation step) and can instead it just produce the mean embeddings. However, this assumption turned out to be incorrect. </p>
         </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
 
