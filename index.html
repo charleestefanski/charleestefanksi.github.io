@@ -47,14 +47,23 @@
     </div>
     <div class="w3-margin w3-display-left" style="top:200px;left:50px">
         <h1 class="w3-xxxlarge w3-text-white w3-wide"><span class="w3-text-dark-grey">Neural Information Retrieval</span></h1>
-        <a class="button w3-xlarge" href="https://github.com/FirmwareDS/Capstone-Information-Retrieval-2.0"><i class="fa fa-github"></i> Project GitHub</a>
+        <a class="button w3-large" href="https://github.com/FirmwareDS/Capstone-Information-Retrieval-2.0"><i class="fa fa-github"></i> Project GitHub</a>
     </div>
 
-    <div class="w3-margin w3-display-left" style="top:600px;left:50px">
+    <div class="w3-row w3-half w3-margin w3-display-left" style="top:600px;left:50px">
         <h3 class="w3-xlarge w3-text-white w3-wide"><span class="w3-text-dark-grey">Team</span></h3>
-        <h4>Marcus Manos</h4>
-        <h4>Anil Tipirneni</h4>
-        <h4>Charlee Stefanski</h4>
+        <div class = "w3-quarter">
+            <h4>Marcus Manos</h4>
+            <img src="marcus.png" alt="Marcus photo" style="width:90%">
+        </div>
+        <div class = "w3-quarter">
+            <h4>Anil Tipirneni</h4>
+            <img src="anil.JPG" alt="Anil photo" style="width:90%">
+        </div>
+        <div class = "w3-quarter">
+            <h4>Charlee Stefanski</h4>
+            <img src="charlee.jpg" alt="Charlee photo" style="width:90%">
+        </div>
     </div>
 </header>
 
@@ -79,16 +88,41 @@
         </div>
     </div>
 
-    <div class="w3-row">
-        <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-row w3-padding-top-48">
+        <div class="w3-twothird w3-container w3-margin-bottom">
             <h3 class="w3-large w3-text-blue">Goal</h3>
             <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>
             <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>
         </div>
-        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
-            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">
+<!--        <div class="w3-third w3-container w3-margin-top w3-padding-top-24">-->
+<!--            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:99%">-->
+<!--        </div>-->
+<!--        <div class="w3-third w3-container w3-sand">-->
+<!--            <h3 class="w3-large">How do we measure efficiency and effectiveness?</h3>-->
+<!--            <p>Efficiency:</p>-->
+<!--            <ul>-->
+<!--                <li>FLOPS (floating-point operations per second): Measure average FLOPS needed to compute document query score. Provides a metric of the computational and resource/energy demand of the model.</li>-->
+<!--                <li>Query Latency (in milliseconds): Time to return ranked documents for query.</li>-->
+<!--            </ul>-->
+<!--            <p>Effectiveness:</p>-->
+<!--            <ul>-->
+<!--                <li>Recall@K: Fraction of relevant docs of (K) items retrieved (order unaware).</li>-->
+<!--                <li>Mean Reciprocal Rank (MRR@K): Measure of ranking the first relevant document (order aware).</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+
+    <div class="w3-row">
+<!--        <div class="w3-twothird w3-container w3-margin-bottom">-->
+<!--            <h3 class="w3-large w3-text-blue">Goal</h3>-->
+<!--            <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>-->
+<!--            <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>-->
+<!--            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:59%">-->
+<!--        </div>-->
+        <div class="w3-half w3-container">
+            <img src="generic_graph.png" alt="Graph of IR efficiency versus effectiveness" style="width:89%">
         </div>
-        <div class="w3-third w3-container w3-margin-top w3-sand">
+        <div class="w3-half w3-container w3-sand">
             <h3 class="w3-large">How do we measure efficiency and effectiveness?</h3>
             <p>Efficiency:</p>
             <ul>
@@ -148,23 +182,27 @@
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
                     <img src="words_per_passage.png" alt="House" style="width:90%">
+                    <figcaption>Distribution of the number of words (or length) of documents in the dataset.</figcaption>
                 </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
                     <img src="unique_words_per_passage.png" alt="House" style="width:100%">
+                    <figcaption>Distribution of the number of unique words per document.</figcaption>
                 </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
                     <div class="w3-display-topleft w3-black w3-padding">Fill</div>
                     <img src="query_top_words.png" alt="House" style="width:95%">
+                    <figcaption>The most common non-stopwords in a query.</figcaption>
                 </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-content">
                     <div class="w3-display-topleft w3-black w3-padding">Fill</div>
                     <img src="query_top_ngrams.png" alt="House" style="width:100%">
+                    <figcaption>The most common "tri-grams" of non-stopwords in a query.</figcaption>
                 </div>
             </div>
         </div>
@@ -184,7 +222,7 @@
         </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
             <img src="colbert_architecture.png" alt="House" style="width:100%">
-
+            <figcaption>Figure from <a href = "https://arxiv.org/pdf/2004.12832.pdf">ColBERT Paper.</a></figcaption>
         </div>
     </div>
 
@@ -219,6 +257,7 @@
             </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-48">
             <img src="splade_arch.png" alt="House" style="width:70%">
+            <figcaption>Figure from <a href = "https://europe.naverlabs.com/blog/splade-a-sparse-bi-encoder-bert-based-model-achieves-effective-and-efficient-first-stage-ranking/">Naver Labs Europe.</a></figcaption>
         </div>
     </div>
 
