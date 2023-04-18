@@ -47,23 +47,6 @@
     </div>
     <div class="w3-margin w3-display-left w3-padding-top-48" style="top:200px;left:50px">
         <h1 class="w3-xxxlarge w3-text-white w3-wide"><span class="w3-text-dark-grey">Optimizing Neural Information <br> Retrieval Techniques</span></h1>
-        <a class="button w3-large" href="https://github.com/FirmwareDS/Capstone-Information-Retrieval-2.0"><i class="fa fa-github"></i> Project GitHub</a>
-    </div>
-
-    <div class="w3-row w3-half w3-margin w3-display-left" style="top:600px;left:50px">
-        <h3 class="w3-xlarge w3-text-white w3-wide"><span class="w3-text-dark-grey">Team</span></h3>
-        <div class = "w3-quarter">
-            <h4>Marcus Manos</h4>
-            <img src="marcus.png" alt="Marcus photo" style="width:90%">
-        </div>
-        <div class = "w3-quarter">
-            <h4>Anil Tipirneni</h4>
-            <img src="anil.JPG" alt="Anil photo" style="width:90%">
-        </div>
-        <div class = "w3-quarter">
-            <h4>Charlee Stefanski</h4>
-            <img src="charlee.jpg" alt="Charlee photo" style="width:90%">
-        </div>
     </div>
 </header>
 
@@ -75,9 +58,33 @@
         <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16 w3-text-dark-grey">Project Overview</h2>
     </div>
 
+    <div class="w3-row w3-container w3-margin-bottom">
+        <div class="w3-third">
+            <a class="button w3-large" href="https://github.com/FirmwareDS/Capstone-Information-Retrieval-2.0"><i class="fa fa-github"></i> Project GitHub</a>
+            <br>
+            <br>
+            <a class="button w3-large" href="https://www.ischool.berkeley.edu/projects/2023/optimizing-neural-information-retrieval-techniques">Berkeley iSchool Project Page</a>
+        </div>
+        <div class="w3-twothird w3-container w3-margin-bottom">
+            <h3 class="w3-xlarge w3-text-white w3-wide"><span class="w3-text-blue-grey">Team</span></h3>
+            <div class = "w3-quarter">
+                <h4>Marcus Manos</h4>
+                <img src="marcus.png" alt="Marcus photo" style="width:80%">
+            </div>
+            <div class = "w3-quarter">
+                <h4>Anil Tipirneni</h4>
+                <img src="anil.JPG" alt="Anil photo" style="width:80%">
+            </div>
+            <div class = "w3-quarter">
+                <h4>Charlee Stefanski</h4>
+                <img src="charlee.jpg" alt="Charlee photo" style="width:80%">
+            </div>
+        </div>
+    </div>
+
     <div class="w3-row">
         <div class="w3-half w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">Problem & Context</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Problem & Context</span></h3>
             <p>An information retrieval (IR) system is software which facilitates the organization, retrieval, and ranking or evaluation of relevant documents from a digital repository based on input from a user. People interact with IR systems constantly--to search for a song from a streaming service, find a restaurant in a new city, or find the receipt for an order in their email inbox. In a <a href = "https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval/">blog post</a> about neural information retrieval, Meta AI Research said IR is "arguably among the most defining challenges of the information age".</p>
             <p>In recent years, there has been an explosion of development in using deep neural networks and deep learning methods for IR tasks. Instead of relying on heavily pre-defined, handcrafted features for query-document matching and ranking, neural network models can learn relationships between words and phrases, patterns, and hierarchical structure. However, using deep learning comes with a high computational cost, and require large amounts of training data before they can be deployed.  </p>
 
@@ -90,7 +97,7 @@
 
     <div class="w3-row w3-padding-top-48">
         <div class="w3-twothird w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">Goal</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Goal</span></h3>
             <p>In this project, our task is to evaluate existing methods for IR, and attempt to narrow the efficiency-effectiveness gap. In other words, we want to develop a method which produces high-quality ranking results as efficiently as possible. </p>
             <p>To accomplish this task, we evaluated several recently published neural information retrieval methods and made improvements upon them.</p>
         </div>
@@ -121,7 +128,7 @@
 
         <div class="w3-row">
             <div class="w3-half w3-container w3-margin-bottom">
-                <h3 class="w3-large w3-text-blue">About the Data</h3>
+                <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">About the Data</span></h3>
                 <p>We used data from the <a href = "https://microsoft.github.io/msmarco/">MS MARCO collection of datasets</a> provided by Microsoft for our project.</p>
                 <p>We use this dataset for several reasons...</p>
                 <ul>
@@ -137,7 +144,7 @@
 
         <div class="w3-row">
             <div class="w3-third w3-container w3-margin-bottom">
-                <h3 class="w3-large w3-text-blue">Example Queries & Passages</h3>
+                <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Example Queries & Passages</span></h3>
                 <p>Query: how many kiloliters are in a liter</p>
             </div>
             <div class="w3-half w3-container">
@@ -194,7 +201,7 @@
 
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">ColBERT Overview</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">ColBERT Overview</span></h3>
             <p><a href = "https://arxiv.org/pdf/2004.12832.pdf">ColBERT</a> is a ranking model which uses "contextualized late interation" with BERT. This method that leverages the effectiveness of deep learning models (specifically BERT) but is more efficient because it decreases the computational demand at the time of query processing using an architecture they call late interaction architecture.</p>
             <p>BERT, which was at one point the state-of-the-art neural information retrieval method as it offered more effective results than existing methods, uses "all-to-all interaction", where a neural network is fed inputs that reflect the similarity between each word and/or phrase in the query and documents. In order to speed up query processing, ColBERT encodes the query and document using BERT and then performs an interaction step where the similarity is computed. By delaying the interaction between queries and documents, document representation can be pre-computed offline. This makes the system much more efficient, but still offers the effectiveness of contextualized term embedding.</p>
         </div>
@@ -206,7 +213,7 @@
 
     <div class="w3-row">
         <div class="w3-third w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">Our Approach: ColBERT with Pruning</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Our Approach: ColBERT with Pruning</span></h3>
             <p>We attempted to improve upon ColBERT by creating pruning methods against ColBERT model layers.</p>
         </div>
         <div class="w3-third w3-container w3-margin-top w3-padding-top-24">
@@ -219,7 +226,7 @@
 
     <div class="w3-row">
         <div class="w3-third w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">Our Approach: ColBERT with Quantization</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Our Approach: ColBERT with Quantization</span></h3>
 
             <p>One of the challenges of using neural networks for information retrieval is the high computational demand of training neural networks. We used a quantization technique to reduce the model size and therefore reduce the hardware demands of the model. </p>
             <p>Quantization of a model is the application of techniques for performing computations and storing tensors at lower bit-widths than floating point precision (i.e. using integers or smaller floating point values). This dramatically reduces both the memory requirement and computational cost of using neural networks. We applied dynamic quantization was post training and indexing.</p>
@@ -231,7 +238,7 @@
 
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">SPLADE Overview</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">SPLADE Overview</span></h3>
             <p><a href = "https://arxiv.org/pdf/2107.05720.pdf">SPLADE</a> is a neural IR method which uses sparse representations of queries and documents. Utilizing sparse vectors means SPLADE still has the desirable properties of Bag-of-Words based methods (traditional methods), like interpretability, exact term matching, and efficient use of inverted indexes. Below is an example of the SPLADE representation of a document.</p>
             <table class="w3-table w3-border">
                 <tr class="w3-blue">
@@ -255,7 +262,7 @@
 
     <div class="w3-row">
         <div class="w3-twothird w3-container w3-margin-bottom">
-            <h3 class="w3-large w3-text-blue">Our Approach: SPLADE with SBERT</h3>
+            <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">Our Approach: SPLADE with SBERT</span></h3>
 
             <p>Our approach was to token-level transformer (BERT) with a sentence transformer (SBERT). This approach had a couple effects on the SPLADE model approach. First of all, the interpretability advantage of SPLADE was diminished because after using a sentence-level transformer we are no longer able to generate a token-level probability distribution to interpret why a document was included in the sparse index. Secondly, we hoped that the steps after the PLM would be more efficient since the model would not need to generate the probability distribution for each token (go through the hierarchical softmax and Concatenation step) and can instead it just produce the mean embeddings. However, this assumption turned out to be incorrect. </p>
         </div>
@@ -272,7 +279,7 @@
     </div>
 
     <div class="w3-container w3-margin-bottom">
-        <h3 class="w3-large">ColBERT with Quantization</h3>
+        <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">ColBERT with Quantization</span></h3>
 
         <table class="w3-table w3-border w3-centered">
             <tr class="w3-blue-grey">
@@ -342,7 +349,7 @@
     </div>
 
     <div class="w3-container w3-margin-bottom">
-        <h3 class="w3-large">SPLADE with SBERT</h3>
+        <h3 class="w3-large w3-text-white w3-wide"><span class="w3-text-blue-grey">SPLADE with SBERT</span></h3>
 
         <table class="w3-table w3-border w3-centered">
             <tr class="w3-blue-grey">
